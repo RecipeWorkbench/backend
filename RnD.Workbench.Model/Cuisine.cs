@@ -1,8 +1,11 @@
-﻿using System;
+﻿using RnD.Workbench.Model.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace RnD.Recipe.Model
+namespace RnD.Workbench.Model
 {
-    public class Ingredient
+    public class Cuisine : ICuisine
     {
         public int Id
         {
@@ -14,12 +17,12 @@ namespace RnD.Recipe.Model
             get; set;
         }
 
-        public int IngredientCategoryId
+        public int RegionId
         {
             get; set;
         }
 
-        public IngredientCategory IngredientCategory
+        public Region Region
         {
             get; set;
         }

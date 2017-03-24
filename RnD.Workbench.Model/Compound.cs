@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RnD.Recipe.Model
+namespace RnD.Workbench.Model
 {
-    public class Region
+    public class Compound
     {
         public int Id
         {
@@ -12,6 +12,11 @@ namespace RnD.Recipe.Model
         }
 
         public string Name
+        {
+            get; set;
+        }
+
+        public string CasNumber
         {
             get; set;
         }

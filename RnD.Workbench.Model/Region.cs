@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RnD.Recipe.Model
+namespace RnD.Workbench.Model
 {
-    public class IngredientCategory
+    public class Region
     {
         public int Id
         {
