@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RnD.Workbench.Interfaces\RnD.Workbench.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Model.Interfaces\RnD.Workbench.Model.Interfaces.csproj" />
   </ItemGroup>
 

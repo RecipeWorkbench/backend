@@ -1,15 +1,22 @@
 ﻿using RnD.Workbench.Interfaces;
-using RnD.Workbench.Interfaces.Model;
 using System;
 using System.Collections.Generic;
 using RnD.Workbench.Interfaces.Calculations;
+using RnD.Workbench.Model.Interfaces;
 
 namespace RnD.Workbench.Core
 {
-    public class Class1 : ICuisineIngredientsRelation
+    public class CuisineIngredientsRelation : FlavorNetworkSession, ICuisineIngredientsRelation
     {
-        public IPrevalenceInCuisine PrevalenceInCuisine { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IContributionToCuisine ContributionToCuisine { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IPrevalenceInCuisine PrevalenceInCuisine
+        {
+            get; set;
+        }
+ 
+        public IContributionToCuisine ContributionToCuisine
+        {
+            get; set;
+        }
 
         void fg(ICollection<IIngredient> ingredients, ICollection<ICuisine> cuisines)
         {

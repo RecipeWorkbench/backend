@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RnD.Database.Interfaces\RnD.Database.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Interfaces\RnD.Workbench.Interfaces.csproj" />
+    <ProjectReference Include="..\RnD.Workbench.Model.Interfaces\RnD.Workbench.Model.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

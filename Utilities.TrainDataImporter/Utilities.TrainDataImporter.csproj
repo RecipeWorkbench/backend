@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RnD.Database.Interfaces\RnD.Database.Interfaces.csproj" />
+    <ProjectReference Include="..\RnD.Database.SQLite\RnD.Database.SQLite.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Model.Interfaces\RnD.Workbench.Model.Interfaces.csproj" />
+    <ProjectReference Include="..\RnD.Workbench.Model\RnD.Workbench.Model.csproj" />
+    <ProjectReference Include="..\Utilities.Csv\Utilities.Csv.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RnD.Workbench.Core\RnD.Workbench.Core.csproj" />
+    <ProjectReference Include="..\RnD.Workbench.Services.Interfaces\RnD.Workbench.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RnD.Database.Interfaces;
 
 namespace RnD.Workbench.Interfaces
 {
     public interface IFlavorNetworkSession
     {
-        public IFlavorNetworkContext FlavorNetworkContext
+        IFlavorNetworkContext FlavorNetworkContext
         {
             get; set;
         }

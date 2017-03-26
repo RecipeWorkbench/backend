@@ -1,4 +1,4 @@
-﻿using RnD.Workbench.Interfaces.Model;
+﻿using RnD.Workbench.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
