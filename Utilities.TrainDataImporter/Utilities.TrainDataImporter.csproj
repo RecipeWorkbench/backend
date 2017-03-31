@@ -6,11 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RnD.Database.Interfaces\RnD.Database.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Database.SQLite\RnD.Database.SQLite.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Model.Interfaces\RnD.Workbench.Model.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Model\RnD.Workbench.Model.csproj" />
     <ProjectReference Include="..\Utilities.Csv\Utilities.Csv.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
