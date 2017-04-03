@@ -16,6 +16,11 @@ namespace RnD.Workbench.Model
             get; set;
         }
 
+        public int ContributionMethodId
+        {
+            get; set;
+        }
+
         public double Contribution
         {
             get; set;
@@ -27,6 +32,11 @@ namespace RnD.Workbench.Model
         }
 
         public Cuisine Cuisine
+        {
+            get; set;
+        }
+
+        public ContributionMethod ContributionMethod
         {
             get; set;
         }

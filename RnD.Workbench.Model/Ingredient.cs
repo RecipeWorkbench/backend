@@ -1,5 +1,6 @@
 ﻿using RnD.Workbench.Model.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace RnD.Workbench.Model
 {
@@ -21,6 +22,21 @@ namespace RnD.Workbench.Model
         }
 
         public IngredientCategory IngredientCategory
+        {
+            get; set;
+        }
+
+        public List<IngredientContribution> IngredientContributions
+        {
+            get; set;
+        }
+
+        public List<RecipeIngredient> RecipeIngredients
+        {
+            get; set;
+        }
+
+        public List<IngredientCompound> IngredientCompounds
         {
             get; set;
         }

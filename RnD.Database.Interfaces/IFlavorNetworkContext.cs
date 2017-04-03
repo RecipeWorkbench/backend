@@ -12,7 +12,15 @@ namespace RnD.Database.Interfaces
 
         DbSet<Ingredient> Ingredients { get; set; }
 
+        DbSet<ContributionMethod> ContributionMethods { get; set; }
+
         DbSet<Compound> Compounds { get; set; }
+
+        DbSet<Flavor> Flavors { get; set; }
+
+        DbSet<FlavorGroup> FlavorGroups { get; set; }
+
+        DbSet<CompoundFlavor> CompoundFlavors { get; set; }
 
         DbSet<Region> Regions { get; set; }
 
@@ -23,5 +31,9 @@ namespace RnD.Database.Interfaces
         DbSet<RecipeIngredient> RecipeIngredients { get; set; }
 
         DbSet<IngredientContribution> IngredientContributions { get; set; }
+
+        int SaveChanges();
+
+        string ConnectionString { get; set; }
     }
 }

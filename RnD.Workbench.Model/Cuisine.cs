@@ -26,5 +26,15 @@ namespace RnD.Workbench.Model
         {
             get; set;
         }
+
+        public List<IngredientContribution> IngredientContributions
+        {
+            get; set;
+        }
+
+        public List<Recipe> Recipes
+        {
+            get; set;
+        }
     }
 }

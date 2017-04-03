@@ -26,5 +26,10 @@ namespace RnD.Workbench.Model
         {
             get; set;
         }
+
+        public List<RecipeIngredient> RecipeIngredients
+        {
+            get; set;
+        }
     }
 }

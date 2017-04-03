@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RnD.Database.Interfaces\RnD.Database.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Interfaces\RnD.Workbench.Interfaces.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Model.Interfaces\RnD.Workbench.Model.Interfaces.csproj" />

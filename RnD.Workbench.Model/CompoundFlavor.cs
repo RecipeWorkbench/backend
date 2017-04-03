@@ -4,29 +4,24 @@ using System.Text;
 
 namespace RnD.Workbench.Model
 {
-    public class Compound
+    public class CompoundFlavor
     {
-        public int Id
+        public int CompoundId
         {
             get; set;
         }
 
-        public string Name
+        public int FlavorId
         {
             get; set;
         }
 
-        public string CasNumber
+        public Compound Compound
         {
             get; set;
         }
 
-        public List<CompoundFlavor> CompoundFlavors
-        {
-            get; set;
-        }
-
-        public List<IngredientCompound> IngredientCompounds
+        public Flavor Flavor
         {
             get; set;
         }

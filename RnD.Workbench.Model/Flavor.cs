@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RnD.Workbench.Model
 {
-    public class Compound
+    public class Flavor
     {
         public int Id
         {
@@ -16,7 +16,7 @@ namespace RnD.Workbench.Model
             get; set;
         }
 
-        public string CasNumber
+        public int FlavorGroupId
         {
             get; set;
         }
@@ -26,7 +26,7 @@ namespace RnD.Workbench.Model
             get; set;
         }
 
-        public List<IngredientCompound> IngredientCompounds
+        public FlavorGroup FlavorGroup
         {
             get; set;
         }

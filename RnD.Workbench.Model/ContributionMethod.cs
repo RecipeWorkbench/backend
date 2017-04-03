@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RnD.Workbench.Model
 {
-    public class Compound
+    public class ContributionMethod
     {
         public int Id
         {
@@ -16,17 +16,7 @@ namespace RnD.Workbench.Model
             get; set;
         }
 
-        public string CasNumber
-        {
-            get; set;
-        }
-
-        public List<CompoundFlavor> CompoundFlavors
-        {
-            get; set;
-        }
-
-        public List<IngredientCompound> IngredientCompounds
+        public List<IngredientContribution> IngredientContributions
         {
             get; set;
         }
