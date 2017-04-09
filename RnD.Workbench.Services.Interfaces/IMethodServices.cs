@@ -8,5 +8,7 @@ namespace RnD.Workbench.Services.Interfaces
     public interface IMethodServices
     {
         MethodDto GetMethod(int id);
+
+        List<MethodDto> GetMethods();
     }
 }
