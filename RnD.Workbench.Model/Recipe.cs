@@ -31,5 +31,10 @@ namespace RnD.Workbench.Model
         {
             get; set;
         }
+
+        public bool IsTrainData
+        {
+            get; set;
+        }
     }
 }

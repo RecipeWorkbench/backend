@@ -8,9 +8,10 @@ using RnD.Database.SQLite;
 namespace RnD.Database.SQLite.Migrations
 {
     [DbContext(typeof(FlavorNetworkContext))]
-    partial class FlavorNetworkContextModelSnapshot : ModelSnapshot
+    [Migration("20170410104931_IsTrainDataSet")]
+    partial class IsTrainDataSet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
