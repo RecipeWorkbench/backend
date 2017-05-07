@@ -6,6 +6,7 @@ using RnD.Database.SQLite;
 using RnD.Workbench.Model;
 using System.Linq;
 using RnD.Workbench.Services.Assemblers;
+using Microsoft.EntityFrameworkCore;
 
 namespace RnD.Workbench.Services
 {
@@ -79,7 +80,12 @@ namespace RnD.Workbench.Services
 
             using (var context = new FlavorNetworkContext())
             {
-                var recipesStartingWith = context.Recipes.Where(r => r.Name.StartsWith(name));
+                var recipesStartingWith = context.Recipes.Include(r => r.Cuisine)
+                    .Include(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
+                            .ThenInclude(i => i.IngredientContributions)
+                                .ThenInclude(c => c.ContributionMethod)
+                    .Where(r => r.Name.StartsWith(name));
 
                 foreach (var recipe in recipesStartingWith)
                 {

@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RnD.Workbench.Services.Interfaces;
+using RnD.Workbench.Services;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RecipeWorkbenchBackend
 {
@@ -29,6 +33,22 @@ namespace RecipeWorkbenchBackend
         {
             // Add framework services.
             services.AddMvc();
+
+            // Add application services.
+            services.AddTransient<IRecipeServices, RecipeServices>();
+            services.AddTransient<IMethodServices, MethodServices>();
+            services.AddTransient<IIngredientServices, IngredientServices>();
+            services.AddTransient<ICuisineServices, CuisineServices>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin());
+            });
+
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowAllOrigins"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

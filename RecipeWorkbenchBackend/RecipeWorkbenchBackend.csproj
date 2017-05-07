@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RnD.Workbench.DataTransferObjects\RnD.Workbench.DataTransferObjects.csproj" />
     <ProjectReference Include="..\RnD.Workbench.Services.Interfaces\RnD.Workbench.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\RnD.Workbench.Services\RnD.Workbench.Services.csproj" />
   </ItemGroup>
 
 </Project>

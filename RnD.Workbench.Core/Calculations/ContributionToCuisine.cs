@@ -16,7 +16,7 @@ namespace RnD.Workbench.Core.Calculations
 
         public double Calculate(ICuisine cuisine, IIngredient ingredient)
         {
-            
+            throw new NotSupportedException();
         }
 
         

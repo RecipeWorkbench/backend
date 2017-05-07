@@ -11,9 +11,16 @@ namespace RecipeWorkbenchBackend.Controllers
     [Route("api/[controller]")]
     public class RecipeController : Controller
     {
+        private readonly IRecipeServices recipeServices;
+
         public IRecipeServices RecipeServices
         {
-            get; set;
+            get => recipeServices;
+        }
+
+        public RecipeController(IRecipeServices service)
+        {
+            recipeServices = service;
         }
 
         // GET api/recipe/{id}

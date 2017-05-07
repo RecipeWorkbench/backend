@@ -10,7 +10,11 @@ namespace RnD.Workbench.Services.Assemblers
     {
         internal MethodDto Map(ContributionMethod method)
         {
-            throw new NotImplementedException();
+            return new MethodDto()
+            {
+                Id = method.Id,
+                Name = method.Name
+            };
         }
     }
 }

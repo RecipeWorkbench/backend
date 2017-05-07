@@ -10,7 +10,7 @@ namespace RnD.Workbench.Core.Calculations
     {
         public double MeanNumber(IRecipe recipe)
         {
-            
+            throw new NotSupportedException();
         }
     }
 }
