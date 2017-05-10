@@ -32,9 +32,9 @@ namespace RecipeWorkbenchBackend.Controllers
 
         // GET api/recipe/startswith/{name}
         [HttpGet("startswith/{name}")]
-        public JsonResult GetRecipesStartingWith(string name)
+        public JsonResult GetRecipesStartingWith(string name, [FromQuery] int skip, [FromQuery] int take)
         {
-            return Json(RecipeServices.GetRecipesStartingWith(name));
+            return Json(RecipeServices.GetRecipesStartingWith(name, skip, take));
         }
 
         // POST api/recipe

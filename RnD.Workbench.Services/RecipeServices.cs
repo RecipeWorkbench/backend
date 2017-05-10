@@ -74,7 +74,7 @@ namespace RnD.Workbench.Services
             return newRecipeDto;
         }
 
-        public List<RecipeHeaderDto> GetRecipesStartingWith(string name)
+        public List<RecipeHeaderDto> GetRecipesStartingWith(string name, int skip, int take)
         {
             var recipes = new List<RecipeHeaderDto>();
 
@@ -85,7 +85,10 @@ namespace RnD.Workbench.Services
                         .ThenInclude(ri => ri.Ingredient)
                             .ThenInclude(i => i.IngredientContributions)
                                 .ThenInclude(c => c.ContributionMethod)
-                    .Where(r => r.Name.StartsWith(name));
+                    .Where(r => r.Name.StartsWith(name))
+                    .OrderBy(r => r.Name)
+                    .Skip(skip)
+                    .Take(take);
 
                 foreach (var recipe in recipesStartingWith)
                 {

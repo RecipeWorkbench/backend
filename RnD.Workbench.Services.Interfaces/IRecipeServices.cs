@@ -9,7 +9,7 @@ namespace RnD.Workbench.Services.Interfaces
     {
         RecipeDto Create(NewRecipeDto recipe);
 
-        List<RecipeHeaderDto> GetRecipesStartingWith(string name);
+        List<RecipeHeaderDto> GetRecipesStartingWith(string name, int skip, int take);
 
         RecipeDto GetRecipe(int id);
 
