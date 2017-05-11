@@ -74,34 +74,102 @@ namespace RnD.Workbench.Services
             return newRecipeDto;
         }
 
-        public List<RecipeHeaderDto> GetRecipesStartingWith(string name, int skip, int take)
+        public List<RecipeHeaderDto> GetRecipes(string name, int ingredient, int cuisine, int skip, int take)
         {
             var recipes = new List<RecipeHeaderDto>();
 
             using (var context = new FlavorNetworkContext())
             {
-                var recipesStartingWith = context.Recipes.Include(r => r.Cuisine)
-                    .Include(r => r.RecipeIngredients)
-                        .ThenInclude(ri => ri.Ingredient)
-                            .ThenInclude(i => i.IngredientContributions)
-                                .ThenInclude(c => c.ContributionMethod)
-                    .Where(r => r.Name.StartsWith(name))
-                    .OrderBy(r => r.Name)
-                    .Skip(skip)
-                    .Take(take);
+                var query = GetRecipesQuery(context, name, ingredient, cuisine);
 
-                foreach (var recipe in recipesStartingWith)
+                if (query != null)
                 {
-                    recipes.Add(RecipeAssembler.Map(recipe));
+                    query = query.OrderBy(r => r.Name)
+                        .Skip(skip)
+                        .Take(take);
+
+                    foreach (var recipe in query)
+                    {
+                        recipes.Add(RecipeAssembler.Map(recipe));
+                    }
                 }
             }
 
             return recipes;
         }
 
+        public int GetRecipesCount(string name, int ingredient, int cuisine, int skip, int take)
+        {
+            var count = 0;
+
+            using (var context = new FlavorNetworkContext())
+            {
+                var query = GetRecipesQuery(context, name, ingredient, cuisine);
+
+                if (query != null)
+                {
+                    count = query.OrderBy(r => r.Name).Count();
+                }
+            }
+
+            return count;
+        }
+
         public TransformedRecipeDto Transform(TransformRecipeDto task)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region "Private methods"
+
+        private IQueryable<Recipe> GetRecipesQuery(FlavorNetworkContext context, string name, int ingredient, int cuisine)
+        {
+            IQueryable<Recipe> query = null;
+
+            var inclusionQuery = context.Recipes.Include(r => r.Cuisine)
+                    .Include(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
+                            .ThenInclude(i => i.IngredientContributions)
+                                .ThenInclude(c => c.ContributionMethod);
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = inclusionQuery.Where(r => r.Name.StartsWith(name));
+            }
+
+            if (query != null)
+            {
+                if (ingredient != 0)
+                {
+                    query = query.Where(r => r.RecipeIngredients.Any(ri => ri.IngredientId == ingredient));
+                }
+            }
+            else
+            {
+                if (ingredient != 0)
+                {
+                    query = inclusionQuery.Where(r => r.RecipeIngredients.Any(ri => ri.IngredientId == ingredient));
+                }
+            }
+
+            if (query != null)
+            {
+                if (cuisine != 0)
+                {
+                    query = query.Where(r => r.CuisineId == cuisine);
+                }
+            }
+            else
+            {
+                if (cuisine != 0)
+                {
+                    query = inclusionQuery.Where(r => r.CuisineId == cuisine);
+                }
+            }
+
+            return query;
         }
 
         #endregion

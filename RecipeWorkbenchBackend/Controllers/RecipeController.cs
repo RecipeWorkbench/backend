@@ -30,11 +30,18 @@ namespace RecipeWorkbenchBackend.Controllers
             return Json(RecipeServices.GetRecipe(id));
         }
 
-        // GET api/recipe/startswith/{name}
-        [HttpGet("startswith/{name}")]
-        public JsonResult GetRecipesStartingWith(string name, [FromQuery] int skip, [FromQuery] int take)
+        // GET api/recipe/filter
+        [HttpGet("filter")]
+        public JsonResult GetRecipes([FromQuery] string name, [FromQuery] int ingredient, [FromQuery] int cuisine, [FromQuery] int skip, [FromQuery] int take)
         {
-            return Json(RecipeServices.GetRecipesStartingWith(name, skip, take));
+            return Json(RecipeServices.GetRecipes(name, ingredient, cuisine, skip, take));
+        }
+
+        // GET api/recipe/count
+        [HttpGet("count")]
+        public int GetRecipesCount([FromQuery] string name, [FromQuery] int ingredient, [FromQuery] int cuisine, [FromQuery] int skip, [FromQuery] int take)
+        {
+            return RecipeServices.GetRecipesCount(name, ingredient, cuisine, skip, take);
         }
 
         // POST api/recipe
