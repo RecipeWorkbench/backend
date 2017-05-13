@@ -67,7 +67,12 @@ namespace RnD.Workbench.Services
 
             using (var context = new FlavorNetworkContext())
             {
-                var recipe = context.Recipes.SingleOrDefault(r => r.Id == id);
+                var recipe = context.Recipes.Include(r => r.Cuisine)
+                    .Include(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
+                            .ThenInclude(i => i.IngredientContributions)
+                                .ThenInclude(ic => ic.ContributionMethod)
+                    .SingleOrDefault(r => r.Id == id);
                 newRecipeDto = RecipeAssembler.Map(recipe);
             }
 
@@ -90,7 +95,7 @@ namespace RnD.Workbench.Services
 
                     foreach (var recipe in query)
                     {
-                        recipes.Add(RecipeAssembler.Map(recipe));
+                        recipes.Add(RecipeAssembler.MapToHeader(recipe));
                     }
                 }
             }
@@ -130,9 +135,7 @@ namespace RnD.Workbench.Services
 
             var inclusionQuery = context.Recipes.Include(r => r.Cuisine)
                     .Include(r => r.RecipeIngredients)
-                        .ThenInclude(ri => ri.Ingredient)
-                            .ThenInclude(i => i.IngredientContributions)
-                                .ThenInclude(c => c.ContributionMethod);
+                        .ThenInclude(ri => ri.Ingredient);
 
             if (!string.IsNullOrEmpty(name))
             {

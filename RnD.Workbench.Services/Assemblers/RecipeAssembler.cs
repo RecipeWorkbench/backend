@@ -13,6 +13,7 @@ namespace RnD.Workbench.Services.Assemblers
         public RecipeAssembler()
         {
             IngredientAssembler = new IngredientAssembler();
+            CuisineAssembler = new CuisineAssembler();
         }
 
         #endregion
@@ -24,7 +25,23 @@ namespace RnD.Workbench.Services.Assemblers
             get; set;
         }
 
+        private CuisineAssembler CuisineAssembler
+        {
+            get; set;
+        }
+
         #endregion
+
+        internal RecipeHeaderDto MapToHeader(Recipe recipe)
+        {
+            var recipeDto = new RecipeHeaderDto();
+
+            recipeDto.Name = recipe.Name;
+            recipeDto.Id = recipe.Id;
+            recipeDto.Cuisine = CuisineAssembler.Map(recipe.Cuisine);
+
+            return recipeDto;
+        }
 
         internal RecipeDto Map(Recipe recipe)
         {
@@ -32,6 +49,7 @@ namespace RnD.Workbench.Services.Assemblers
 
             recipeDto.Name = recipe.Name;
             recipeDto.Id = recipe.Id;
+            recipeDto.Cuisine = CuisineAssembler.Map(recipe.Cuisine);
             recipeDto.Ingredients = new List<IngredientDto>();
 
             foreach (var ingredient in recipe.RecipeIngredients)

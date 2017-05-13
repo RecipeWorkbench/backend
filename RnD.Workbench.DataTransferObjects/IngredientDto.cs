@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RnD.Workbench.DataTransferObjects
 {
-    public class IngredientDto
+    public class IngredientHeaderDto
     {
         public int Id
         {
@@ -15,7 +15,10 @@ namespace RnD.Workbench.DataTransferObjects
         {
             get; set;
         }
+    }
 
+    public class IngredientDto : IngredientHeaderDto
+    {
         public List<ContributionDto> Contributions
         {
             get; set;

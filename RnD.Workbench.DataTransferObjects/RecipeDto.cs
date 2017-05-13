@@ -15,6 +15,11 @@ namespace RnD.Workbench.DataTransferObjects
         {
             get; set;
         }
+
+        public CuisineDto Cuisine
+        {
+            get; set;
+        }
     }
 
     public class RecipeDto : RecipeHeaderDto

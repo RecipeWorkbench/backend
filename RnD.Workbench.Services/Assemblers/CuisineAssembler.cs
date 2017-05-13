@@ -10,7 +10,12 @@ namespace RnD.Workbench.Services.Assemblers
     {
         internal CuisineDto Map(Cuisine cuisine)
         {
-            throw new NotImplementedException();
+            var cuisineDto = new CuisineDto();
+
+            cuisineDto.Id = cuisine.Id;
+            cuisineDto.Name = cuisine.Name;
+
+            return cuisineDto;
         }
     }
 }
