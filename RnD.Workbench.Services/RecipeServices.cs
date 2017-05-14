@@ -70,9 +70,18 @@ namespace RnD.Workbench.Services
                 var recipe = context.Recipes.Include(r => r.Cuisine)
                     .Include(r => r.RecipeIngredients)
                         .ThenInclude(ri => ri.Ingredient)
+                            .ThenInclude(i => i.IngredientCategory)
+                    .Include(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
                             .ThenInclude(i => i.IngredientContributions)
                                 .ThenInclude(ic => ic.ContributionMethod)
+                    .Include(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
+                            .ThenInclude(i => i.IngredientCompounds)
+                                .ThenInclude(ic => ic.Compound)
+                                    //.ThenInclude(c => c.CompoundFlavors)
                     .SingleOrDefault(r => r.Id == id);
+
                 newRecipeDto = RecipeAssembler.Map(recipe);
             }
 

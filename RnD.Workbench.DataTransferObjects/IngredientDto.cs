@@ -23,5 +23,15 @@ namespace RnD.Workbench.DataTransferObjects
         {
             get; set;
         }
+
+        public IngredientCategoryDto Category
+        {
+            get; set;
+        }
+
+        public List<CompoundDto> Compounds
+        {
+            get; set;
+        }
     }
 }

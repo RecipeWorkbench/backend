@@ -32,7 +32,13 @@ namespace RnD.Workbench.Services.Assemblers
 
             ingredientDto.Name = ingredient.Name;
             ingredientDto.Id = ingredient.Id;
+            ingredientDto.Category = new IngredientCategoryDto
+            {
+                Id = ingredient.IngredientCategory.Id,
+                Name = ingredient.IngredientCategory.Name
+            };
             ingredientDto.Contributions = new List<ContributionDto>();
+            ingredientDto.Compounds = new List<CompoundDto>();
 
             foreach (var contribution in ingredient.IngredientContributions)
             {
@@ -40,6 +46,16 @@ namespace RnD.Workbench.Services.Assemblers
                 {
                     Contribution = contribution.Contribution,
                     Method = MethodAssembler.Map(contribution.ContributionMethod)
+                });
+            }
+
+            foreach (var compound in ingredient.IngredientCompounds)
+            {
+                ingredientDto.Compounds.Add(new CompoundDto
+                {
+                    Id = compound.Compound.Id,
+                    Name = compound.Compound.Name,
+                    CasNumber = compound.Compound.CasNumber
                 });
             }
 
