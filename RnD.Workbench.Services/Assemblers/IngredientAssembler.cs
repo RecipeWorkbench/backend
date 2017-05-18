@@ -26,6 +26,16 @@ namespace RnD.Workbench.Services.Assemblers
 
         #endregion
 
+        internal IngredientHeaderDto MapToHeader(Ingredient ingredient)
+        {
+            var ingredientDto = new IngredientDto();
+
+            ingredientDto.Name = ingredient.Name;
+            ingredientDto.Id = ingredient.Id;
+
+            return ingredientDto;
+        }
+
         internal IngredientDto Map(Ingredient ingredient)
         {
             var ingredientDto = new IngredientDto();

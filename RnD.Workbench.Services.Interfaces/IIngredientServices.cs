@@ -9,6 +9,12 @@ namespace RnD.Workbench.Services.Interfaces
     {
         IngredientDto GetIngredient(int id);
 
-        List<IngredientDto> GetIngredientsStartingWith(string name);
+        List<IngredientHeaderDto> GetIngredientsStartingWith(string name);
+
+        List<IngredientHeaderDto> GetIngredientHeaders();
+
+        List<IngredientDto> GetIngredients(string name, int compound, int skip, int take);
+
+        int GetIngredientsCount(string name, int compound, int skip, int take);
     }
 }

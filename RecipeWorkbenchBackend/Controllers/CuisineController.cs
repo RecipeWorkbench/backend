@@ -17,6 +17,11 @@ namespace RecipeWorkbenchBackend.Controllers
             get; set;
         }
 
+        public CuisineController(ICuisineServices cuisineServices)
+        {
+            CuisineServices = cuisineServices;
+        }
+
         // GET api/cuisine/{id}
         [HttpGet("{id}")]
         public JsonResult GetCuisine(int id)
